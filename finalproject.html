@@ -15,34 +15,37 @@
             <h1>Yuki Asakura's Final Project Sketch</h1>
             <p>
             <img src="images/final-project-sketch.jpg" width=400></a>
-            <p>This is my final project sketch: Smart Port. It is a plant pot with an LED strip that lets users know when to water their plants. It also has an additional bluetooth speaker that blends seemlessly around the pot.</p>
+            <p>This is my final project sketch: Smart Pot. It is a plant pot with an LED strip that lets users know when to water their plants. I originally had plans to add a bluetooth speaker but due to time constraints, I decided not to pursue that.</p>
             <br>
             <h2>Bill of Materials</h2>
             <h3>Main Components</h3>
             <ul>
-			  <li>Arduino Pro Mini 328 - 5V/16MHz</li>
-			  <li><a href="https://www.sparkfun.com/products/13322">SparkFun Soil Moisture Sensor</a></li>
-			  <li>Piezo Speaker - PC Mount 12mm 2.048kHz</li>
+			  <li>Arduino</li>
+			  <li>DHT11 Humidity Sensor</li>
 			  <li>9V Alkaline Battery</li>
-			  <li><a href="https://www.adafruit.com/product/2479">Adafruit Bluefruit LE UART Friend - Bluetooth Low Energy (BLE)</a></li>
 			  <li>Flexibe LED Strip Lights</li>
+			  <li>12V Power</li>
 			</ul>
 			<h3>Secondary Components</h3>
 			<ul>
 				<li>Resistors</li>
+				<li>Transistor</li>
 				<li>Breadboard</li>
 				<li>Wires</li>
 			</ul>
 			<br>
-			<p>
             <img src="images/final.gif" width=500></a>
-            <p><b>Circuit Operation. </b>The plant pot glows when the plant needs more water.</p>
+            <p><b>Circuit Operation. </b>The plant pot glows when the plant needs more water. When the plant gets more water, the plant stops glowing. It is all powered by a 12V outlet without the connection of a laptop. The LED strip wraps around the rim of the plant pot.</p>
             <br>
+            <img src="images/3dmodel.png" width=500></a>
+            <p><b>3D Model of Plant Pot. </b>The plant pot was designed in Rhino and printed with a 3D printer. The rim's height matches the width of the led strip.</p>
+            <br>
+            <img s
             <img src="images/arduino-final.jpg" width=500></a>
             <p><b>Circuit board.</b> When the humidity sensor recognizes a low humidity, the led strip lights glows up.</p>
             <br>
             <pre><code>
-#include <dht.h>                  // include dht library
+#include &lt;dht.h&gt;                  // include dht library
 dht DHT;                          // define dht as DHT
 #define DHT11_PIN 7               // set humidity sensor as pin 7
 int temp = 0;                     // initializing temperature int
@@ -77,10 +80,10 @@ void loop()                       // this function loops after setup
   delay(2000);                                                          // setting delay as 2 seconds to remove bad readings
 }
 	</code></pre>
-	<p><b>Arduino Code Snippet</b></p>
+	<p><b>Arduino Code Snippet. </b>Note that the glowing of the LED is triggered when DHT 11 Humidity Sensor reads a value of less than 40. This is because typically a plant should be between 40%~60% humidity.</p>
 	<br>
 	<img src="images/schematic-final.png" width=600></a>
-    <p><b>Schematic</b></p>
+    <p><b>Schematic. </b>Note that the entire circuit is powered just by the 12V outlet.</p>
     <br>
 
 
